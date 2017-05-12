@@ -19,7 +19,7 @@ export default class LangWidget extends Component {
             <div className="bottom-icons">
                 <img className="icons" src="static/icons/star.png" alt="star"/>
                 <p className="bold-text">4</p>
-                <img class="icons last" src="static/icons/share.png" alt="share"/>
+                <img className="icons last" src="static/icons/share.png" alt="share"/>
             </div>
         </div>
         )
