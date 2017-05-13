@@ -14,7 +14,7 @@ export default class TimeWidget extends Component {
 
         componentDidMount(){
 
-            setInterval(() => this.setState( 
+            this.interval = setInterval(() => this.setState( 
                 
                 fetch('http://time.jsontest.com/')
                     .then( (response) => {
@@ -30,6 +30,9 @@ export default class TimeWidget extends Component {
             , 10000))
         };
 
+        componentWillUnmount() {
+            clearInterval(this.interval);
+        }
                     
         render(){
             //console.log(time_info)
@@ -42,7 +45,6 @@ export default class TimeWidget extends Component {
                     </div>
                     <div className="top-image"><img src="static/icons/top-image.png" alt="top-image"/></div>
                 </div>
-                
             )
         }
 
