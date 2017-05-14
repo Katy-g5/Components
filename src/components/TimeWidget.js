@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+let timerInterval = 1000;
 
 export default class TimeWidget extends Component {
 
@@ -9,12 +10,11 @@ export default class TimeWidget extends Component {
                 this.state = {
                     time_info: []
                 };
-             //   console.log('hello' ,time_info)
         };
 
         componentDidMount(){
 
-            this.interval = setInterval(() => this.setState( 
+            this.interval = setInterval(() => 
                 
                 fetch('http://time.jsontest.com/')
                     .then( (response) => {
@@ -27,7 +27,7 @@ export default class TimeWidget extends Component {
                         })
                     })
                     .catch(error => console.log(error))
-            , 10000))
+            , timerInterval)
         };
 
         componentWillUnmount() {
@@ -35,7 +35,6 @@ export default class TimeWidget extends Component {
         }
                     
         render(){
-            //console.log(time_info)
             return (
                 <div className="top-widget">
                     <div className="data-text">
@@ -47,5 +46,4 @@ export default class TimeWidget extends Component {
                 </div>
             )
         }
-
 } 
